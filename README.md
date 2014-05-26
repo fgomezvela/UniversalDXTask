@@ -1,9 +1,11 @@
 SUMMARY:
 -------
 Files contained:
+
 	* file task.R - a script with the code of the two requested functions (trainer, labels).
-	* folder DXTask - this folder contains the eclipse JAVA project that access to the R functions.
+	* folder DXTask - this folder contains a .jar file to execute the task.
 	* wdbc.data - the dataset used for the task, this dataset is described bellow.
+	* DXTask.zip - this file contains the eclipse JAVA project that access to the R functions.
 
 	
 	
