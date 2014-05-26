@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Dx task : Francisco A. Gómez Vela " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Dx task</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/fgomezvela/DxTask">View on GitHub</a>
+
+          <h1 id="project_title">Dx task</h1>
+          <h2 id="project_tagline">Francisco A. Gómez Vela </h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/fgomezvela/DxTask/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/fgomezvela/DxTask/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a name="summary" class="anchor" href="#summary"><span class="octicon octicon-link"></span></a>SUMMARY:</h2>
+
+<p>Files contained:</p>
+
+<pre><code>* file task.R - a script with the code of the two requested functions (trainer, labels).
+* folder DXTask - this folder contains a .jar file to execute the task.
+* wdbc.data - the dataset used for the task, this dataset is described bellow.
+    * DXTask.zip - this file contains the eclipse JAVA project that access to the R functions.
+</code></pre>
+
+<h2>
+<a name="considerations" class="anchor" href="#considerations"><span class="octicon octicon-link"></span></a>CONSIDERATIONS:</h2>
+
+<p>To test the JAVA program you should install Rserve and load "task.R" script in R. The easiest way to install Rserve is to install it from CRAN, simply use</p>
+
+<pre><code>    install.packages("Rserve")
+</code></pre>
+
+<p>To start Rserve is from within R, just type:</p>
+
+<pre><code>    library(Rserve)
+    Rserve()
+</code></pre>
+
+<h2>
+<a name="dataset-used-information" class="anchor" href="#dataset-used-information"><span class="octicon octicon-link"></span></a>DATASET USED INFORMATION:</h2>
+
+<ul>
+<li>url: <a href="http://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29">http://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29</a>
+</li>
+<li>Breast Cancer Wisconsin (Diagnostic) Data Set.</li>
+<li>Number of Instances: 569</li>
+<li>Number of Attributes: 32</li>
+<li>Without missing values</li>
+</ul><p>Attribute Information:</p>
+
+<pre><code>1) ID number
+2) Diagnosis (M = malignant, B = benign)---&gt; Label
+
+Ten real-valued features are computed for each cell nucleus:
+
+a) radius (mean of distances from center to points on the perimeter)
+b) texture (standard deviation of gray-scale values)
+c) perimeter
+d) area
+e) smoothness (local variation in radius lengths)
+f) compactness (perimeter^2 / area - 1.0)
+g) concavity (severity of concave portions of the contour)
+h) concave points (number of concave portions of the contour)
+i) symmetry
+j) fractal dimension ("coastline approximation" - 1)
+</code></pre>
+
+<h2>
+<a name="r-code-to-test-the-r-functions" class="anchor" href="#r-code-to-test-the-r-functions"><span class="octicon octicon-link"></span></a>R CODE TO TEST THE R FUNCTIONS:</h2>
+
+<pre><code>breast&lt;-read.csv('wdbc.data', header=FALSE)
+
+index &lt;- 1:nrow(breast)
+testindex &lt;- sample(index, trunc(length(index)*30/100))
+
+trainset &lt;- breast[-testindex,]
+testset &lt;-breast[testindex,]
+
+cla&lt;-trainer(trainset,trainset[,2])
+
+labels(cla,testset[,-2])
+</code></pre>
+
+<p>NOTE : Please, set the working directory of R (using setwd function) to the directory where is stored your dataset.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Dx task maintained by <a href="https://github.com/fgomezvela">fgomezvela</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
