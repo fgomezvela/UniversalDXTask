@@ -11,12 +11,12 @@ CONSIDERATIONS:
 --------------
 To test the JAVA program you should install Rserve and load "task.R" script in R. The easiest way to install Rserve is to install it from CRAN, simply use
 
-install.packages("Rserve")
+		install.packages("Rserve")
 
 To start Rserve is from within R, just type:
 
-library(Rserve)
-Rserve()
+		library(Rserve)
+		Rserve()
 
 
 
@@ -52,16 +52,16 @@ Attribute Information:
 R CODE TO TEST THE R FUNCTIONS:
 ------------------------------
 
-breast<-read.csv('wdbc.data', header=FALSE)
-
-index <- 1:nrow(breast)
-testindex <- sample(index, trunc(length(index)*30/100))
-
-trainset <- breast[-testindex,]
-testset <-breast[testindex,]
-
-cla<-trainer(trainset,trainset[,2])
-
-labels(cla,testset[,-2])
+	breast<-read.csv('wdbc.data', header=FALSE)
+	
+	index <- 1:nrow(breast)
+	testindex <- sample(index, trunc(length(index)*30/100))
+	
+	trainset <- breast[-testindex,]
+	testset <-breast[testindex,]
+	
+	cla<-trainer(trainset,trainset[,2])
+	
+	labels(cla,testset[,-2])
 
 NOTE : Please, set the working directory of R (using setwd function) to the directory where is stored your dataset.
