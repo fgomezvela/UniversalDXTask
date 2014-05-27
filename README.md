@@ -11,7 +11,9 @@ Solutions:
 ----------
 
 I have worked before with the RCaller library to connect R with JAVA. Therefore, I have developed two different solutions in the same JAVA project:
+
 	1. Rserve-based as it was described in the instructions: TaskWithRserve.java
+	
 	2. And a RCaller-based to complement the solution for the task: TaskWithRCaller.java
 
 
@@ -22,6 +24,7 @@ Files contained:
 	* folder "java executable" - this folder contains a .jar file to execute the task using Rserve ("java -jar DXtask.jar").
 	* DXTask.zip - this file contains the eclipse JAVA project that access to the R functions with two different JAVA-based libraries Rserve and RCaller.
 	* wdbc.data - the dataset used for the task, this dataset is described below.
+	* "java main sources" - this folder contains the two principal JAVA classes: TaskWithRserve.java and TaskWithRCaller.java
 	
 
 	
@@ -94,7 +97,10 @@ R CODE TO TEST THE R FUNCTIONS:
 
 		labels(cla,testset[,-2])
 
-NOTE : This code is included in task.R file. Please, set the working directory of R (using setwd function) to the directory where is stored your dataset.
+NOTES : 
+	1.First, load the functions in R. 
+	2.This code is included in task.R file.
+	3.Please, set the working directory of R (using setwd function) to the directory where is stored your dataset.
 
 
 REFERENCES:
