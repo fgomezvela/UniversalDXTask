@@ -2,17 +2,21 @@ SUMMARY:
 -------
 
 Selected Classifier:
+--------------------
 
 I have used the naives Bayes classifier[1] since it is a simple probabilistic classifier based on applying Bayes' theorem (from Bayesian statistics) with strong (naive) independence assumptions. A more descriptive term for the underlying probability model would be "independent feature model".
 An advantage of the naive Bayes classifier is that it requires a small amount of training data to estimate the parameters (means and variances of the variables) necessary for classification [2].Because independent variables are assumed, only the variances of the variables for each class need to be determined and not the entire covariance matrix.
 
 Solutions:
+----------
+
 I have worked before with the RCaller library to connect R with JAVA. Therefore, I have developed two different solutions in the same JAVA project:
 	1. Rserve-based as it was described in the instructions: TaskWithRserve.java
 	2. And a RCaller-based to complement the solution for the task: TaskWithRCaller.java
 
 
 Files contained:
+----------------
 
 	* task.R - a script with the code of the two requested functions (trainer, labels).
 	* folder "java executable" - this folder contains a .jar file to execute the task using Rserve ("java -jar DXtask.jar").
@@ -22,7 +26,7 @@ Files contained:
 
 	
 CONSIDERATIONS FOR THE JAVA PROGRAMS:
------------------------------------
+-------------------------------------
 
 
 Rserve Solution:
