@@ -31,6 +31,7 @@ Files contained:
 CONSIDERATIONS FOR THE JAVA PROGRAMS:
 -------------------------------------
 
+All the parameters are defined in the "config.properties" file.
 
 Rserve Solution:
 	To test the Rserve-based JAVA program you should install Rserve in R. The easiest way to install Rserve is to install it from CRAN, simply use
