@@ -16,23 +16,40 @@ I have worked before with the RCaller library to connect R with JAVA. Therefore,
 
 
 Files contained:
+<<<<<<< HEAD
 	* task.R - a script with the code of the two requested functions (trainer, labels).
 	* folder "java executable" - this folder contains a .jar file to execute the task using Rserve ("java -jar DXtask.jar").
 	* DXTask.zip - this file contains the eclipse JAVA project that access to the R functions with two different JAVA-based libraries Rserve and RCaller.
 	* wdbc.data - the dataset used for the task, this dataset is described below.
 	
+=======
+
+	* file task.R - a script with the code of the two requested functions (trainer, labels).
+	* folder DXTask - this folder contains a .jar file to execute the task.
+	* wdbc.data - the dataset used for the task, this dataset is described bellow.
+	* DXTask.zip - this file contains the eclipse JAVA project that access to the R functions.
+>>>>>>> 85a3b536ecfac468e227c1735cf2ab6f02bf0d70
 
 	
 	
 CONSIDERATIONS FOR THE JAVA PROGRAMS:
 -----------------------------------
 
+<<<<<<< HEAD
 Rserve Solution:
 	To test the Rserve-based JAVA program you should install Rserve in R. The easiest way to install Rserve is to install it from CRAN, simply use
+=======
+		install.packages("Rserve")
+>>>>>>> 85a3b536ecfac468e227c1735cf2ab6f02bf0d70
 
 	install.packages("Rserve")
 
+<<<<<<< HEAD
 	To start Rserve is from within R, just type:
+=======
+		library(Rserve)
+		Rserve()
+>>>>>>> 85a3b536ecfac468e227c1735cf2ab6f02bf0d70
 
 	library(Rserve)
 	Rserve()
@@ -75,6 +92,7 @@ Attribute Information:
 R CODE TO TEST THE R FUNCTIONS:
 ------------------------------
 
+<<<<<<< HEAD
 
 		breast<-read.csv('wdbc.data', header=FALSE)
 
@@ -90,6 +108,19 @@ R CODE TO TEST THE R FUNCTIONS:
 
 NOTE : This code is included in task.R file. Please, set the working directory of R (using setwd function) to the directory where is stored your dataset.
 
+=======
+	breast<-read.csv('wdbc.data', header=FALSE)
+	
+	index <- 1:nrow(breast)
+	testindex <- sample(index, trunc(length(index)*30/100))
+	
+	trainset <- breast[-testindex,]
+	testset <-breast[testindex,]
+	
+	cla<-trainer(trainset,trainset[,2])
+	
+	labels(cla,testset[,-2])
+>>>>>>> 85a3b536ecfac468e227c1735cf2ab6f02bf0d70
 
 REFERENCES:
 -----------
