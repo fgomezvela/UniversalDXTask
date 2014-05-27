@@ -34,25 +34,51 @@
         <h2>
 <a name="summary" class="anchor" href="#summary"><span class="octicon octicon-link"></span></a>SUMMARY:</h2>
 
-<p>Files contained:</p>
+<h2>
+<a name="selected-classifier" class="anchor" href="#selected-classifier"><span class="octicon octicon-link"></span></a>Selected Classifier:</h2>
 
-<ul>
-<li>file task.R - a script with the code of the two requested functions (trainer, labels).</li>
-<li>folder DXTask - this folder contains a .jar file to execute the task.</li>
-<li>wdbc.data - the dataset used for the task, this dataset is described bellow.</li>
-<li>DXTask.zip - this file contains the eclipse JAVA project that access to the R functions.</li>
-</ul><h2>
-<a name="considerations" class="anchor" href="#considerations"><span class="octicon octicon-link"></span></a>CONSIDERATIONS:</h2>
+<p>I have used the naives Bayes classifier[1] since it is a simple probabilistic classifier based on applying Bayes' theorem (from Bayesian statistics) with strong (naive) independence assumptions. A more descriptive term for the underlying probability model would be "independent feature model".
+An advantage of the naive Bayes classifier is that it requires a small amount of training data to estimate the parameters (means and variances of the variables) necessary for classification [2].Because independent variables are assumed, only the variances of the variables for each class need to be determined and not the entire covariance matrix.</p>
 
-<p>To test the JAVA program you should install Rserve and load "task.R" script in R. The easiest way to install Rserve is to install it from CRAN, simply use</p>
+<h2>
+<a name="solutions" class="anchor" href="#solutions"><span class="octicon octicon-link"></span></a>Solutions:</h2>
 
-<pre><code>    install.packages("Rserve")
+<p>I have worked before with the RCaller library to connect R with JAVA. Therefore, I have developed two different solutions in the same JAVA project:</p>
+
+<pre><code>1. Rserve-based as it was described in the instructions: TaskWithRserve.java
+
+2. And a RCaller-based to complement the solution for the task: TaskWithRCaller.java
+</code></pre>
+
+<h2>
+<a name="files-contained" class="anchor" href="#files-contained"><span class="octicon octicon-link"></span></a>Files contained:</h2>
+
+<pre><code>* task.R - a script with the code of the two requested functions (trainer, labels).
+* folder "java executable" - this folder contains a .jar file to execute the task using Rserve ("java -jar DXtask.jar").
+* DXTask.zip - this file contains the eclipse JAVA project that access to the R functions with two different JAVA-based libraries Rserve and RCaller.
+* wdbc.data - the dataset used for the task, this dataset is described below.
+* "java main sources" - this folder contains the two principal JAVA classes: TaskWithRserve.java and TaskWithRCaller.java
+</code></pre>
+
+<h2>
+<a name="considerations-for-the-java-programs" class="anchor" href="#considerations-for-the-java-programs"><span class="octicon octicon-link"></span></a>CONSIDERATIONS FOR THE JAVA PROGRAMS:</h2>
+
+<p>Rserve Solution:
+    To test the Rserve-based JAVA program you should install Rserve in R. The easiest way to install Rserve is to install it from CRAN, simply use</p>
+
+<pre><code>install.packages("Rserve")
 </code></pre>
 
 <p>To start Rserve is from within R, just type:</p>
 
 <pre><code>    library(Rserve)
     Rserve()
+</code></pre>
+
+<p>RCaller Solution:
+    To test the RCaller-based solution you should install the Runiversal package.</p>
+
+<pre><code>install.packages("Runiversal")
 </code></pre>
 
 <h2>
@@ -87,20 +113,34 @@ j) fractal dimension ("coastline approximation" - 1)
 <h2>
 <a name="r-code-to-test-the-r-functions" class="anchor" href="#r-code-to-test-the-r-functions"><span class="octicon octicon-link"></span></a>R CODE TO TEST THE R FUNCTIONS:</h2>
 
-<pre><code>breast&lt;-read.csv('wdbc.data', header=FALSE)
+<pre><code>    breast&lt;-read.csv('wdbc.data', header=FALSE)
 
-index &lt;- 1:nrow(breast)
-testindex &lt;- sample(index, trunc(length(index)*30/100))
+    index &lt;- 1:nrow(breast)
+    testindex &lt;- sample(index, trunc(length(index)*30/100))
 
-trainset &lt;- breast[-testindex,]
-testset &lt;-breast[testindex,]
+    trainset &lt;- breast[-testindex,]
+    testset &lt;-breast[testindex,]
 
-cla&lt;-trainer(trainset,trainset[,2])
+    cla&lt;-trainer(trainset,trainset[,2])
 
-labels(cla,testset[,-2])
+    labels(cla,testset[,-2])
 </code></pre>
 
-<p>NOTE : Please, set the working directory of R (using setwd function) to the directory where is stored your dataset.</p>
+<p>NOTES : 
+    1.First, load the functions in R. 
+    2.This code is included in task.R file.
+    3.Please, set the working directory of R (using setwd function) to the directory where is stored your dataset.</p>
+
+<h2>
+<a name="references" class="anchor" href="#references"><span class="octicon octicon-link"></span></a>REFERENCES:</h2>
+
+<pre><code>    [1] Malik Yousef,Segun Jung, Andrew V. Kossenkov,Louise C. Showe,and Michael K. Showe.
+        Naïve Bayes for microRNA target predictions—machine learning for microRNA targets.
+        Bioinformatics (2007) 23 (22): 2987-2992 first published online October 8, 2007     
+    [2] Caruana, R.; Niculescu-Mizil, A.
+        An empirical comparison of supervised learning algorithms. 
+        Proceedings of the 23rd international conference on Machine learning (2006) 
+</code></pre>
       </section>
     </div>
 
